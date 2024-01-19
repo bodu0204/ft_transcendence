@@ -1,0 +1,422 @@
+.friend_page{
+    width: 100vw;
+    height: 100%;
+    background-color: rgb(53, 49, 49);
+    display: flex;
+    flex-direction: column;
+}
+
+.friend_box {
+    display: flex;
+    justify-content: center;
+    border-radius: 70px;
+    text-decoration: underline dotted rgb(255, 255, 0);
+}
+
+.button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: 2.0rem;
+    border-color: rgba(255, 255, 255, 0.166);
+    margin: 20px;
+    transition: 0.2s;
+    text-shadow: 8px 0px 4px rebeccapurple;
+}
+
+
+.button:hover{
+    color: rgb(223, 223, 21);
+    transition: 0.4s;
+    cursor: pointer;
+    text-shadow: 8px 0px 4px rebeccapurple;
+}
+
+.box{
+    overflow: auto;
+}
+
+.friends{
+    background-color: rgb(94, 90, 90);
+    border-radius: 10px;
+    display: flex;
+    margin: 10px;
+    word-wrap: break-word;
+    cursor: pointer;
+    box-shadow: 5px 7px 4px 1px rgb(16 16 16 / 38%);
+    transition: 0.6s;
+}
+
+.friends:hover{
+    transition: 0.4s;
+    background-color: rgb(114, 110, 110);
+}
+
+.friend_list {
+    position: relative;
+    display: flex;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    align-items: center;
+    transition: 0.5s;
+    background-color: #1c1b1b80;
+}
+
+.friend_list:hover {
+    background-color: #1c1b1b80;
+    transform: translateY(-13px);
+    transition: 0.4s;
+}
+
+.friend_img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+    object-fit: cover;
+    margin: 15px;
+}
+
+.name {
+    color: var(--text-color);
+    font-size: 2.3rem;
+    margin-top: 40px;
+    margin-left: 70px;
+}
+
+.span {
+    color: rgb(162, 128, 196);
+    font-size: 30px;
+    margin-top: 29px;
+    margin-left: 5px;
+}
+
+/* ========== serach friend part =========  */
+
+
+.find_friends_box{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(38, 37, 37);
+}
+
+.search{
+    margin-top: 10%;
+}
+
+@media (max-width: 1400px) {
+
+	.find_friends_box{
+		display: none;
+	}
+  }
+
+.find_friends {
+    border-radius: 50px;
+    background-color: rgb(38, 37, 37);
+    color: var(--text-color);
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    border-style: dotted;
+    font-size: 1.2rem;
+}
+
+
+/* Click Design Part  */
+
+.click_part{
+    position: absolute;
+    width: 600px;
+    height: 530px;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 18px rgb(16, 16, 16);
+    border-radius: 5%;
+    text-align: center;
+    box-shadow: var(--box-shadow-inset);
+    background-color: #151715;
+}
+
+.info{
+    display: flex;
+    word-wrap: break-word; 
+    flex-direction: column;
+    text-align: center;
+    word-wrap: break-word;
+    inset: 0 ;
+}
+
+.info_img{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 30px;
+    box-shadow: 0px 0px 16px rgb(16, 16, 16);
+}
+
+.Win_rate{
+    font-size: 6rem;
+    color: #ffffffd1;
+    filter: drop-shadow(var(--drop-shadow)); 
+}
+
+.profile_name{
+    font-size: 2.5rem;
+    margin-left: 35%;
+    margin-top: -25%;
+    color: var(--text-color);
+    text-shadow: 8px 0px 2px rgb(114, 62, 167);
+}
+
+.buttom{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 20%;
+
+}
+
+
+/* 閉じるボタン */
+.icon_info{
+    z-index: 9;
+    position: absolute;
+    right: 0;
+    font-size: 3.5rem;
+    color: #1c1b1bde;
+    cursor: pointer;
+}
+
+/* ============ Groups Part Design =========== */
+
+.group{
+    display: flex;
+}
+
+.your_groups{
+    height: 100%;
+    width: 100%;
+}
+
+.position{
+    text-align: center;
+}
+
+.font{
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+.groups{
+    display: flex;
+    margin: 10px;
+    background-color: rgb(94, 90, 90);
+    box-shadow: 5px 7px 4px 1px rgb(16 16 16 / 38%);
+    border-radius: 10px;
+    transition: 0.5s;
+
+}
+
+.groups:hover{
+    cursor: pointer;
+    transform: translateY(-13px);
+    transition: 0.4s;
+}
+
+.group_img{
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin: 10px;
+}
+
+.group_name{
+    position: relative;
+    margin-left: 40px;
+    margin-top: 30px;
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.acces_styles{
+    font-size: 1.4rem;
+    color: yellow;
+    text-shadow: 8px 0px 4px rebeccapurple;
+}
+
+/* チャンネル作成部分 */
+
+.font{
+    color: yellow;
+    text-shadow: 8px 0px 4px rebeccapurple;
+    margin-top: 10px;
+}
+
+.click{
+    color: var(--text-color);
+    background-color: rebeccapurple;
+    margin: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1rem;
+    border-color: rgba(255, 255, 255, 0.166);
+}
+
+.type{
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin: 50px;
+    text-shadow: 8px 0px 4px rebeccapurple;
+}
+
+.option{
+    font-size: 1.3rem;
+}
+
+.button_create{
+    font-size: 2rem;
+    margin-top: 40px;
+    background-color: rebeccapurple;
+    color: var(--text-color);
+    border-color: rgba(255, 255, 255, 0.166);
+}
+
+
+/* click group part */
+
+.group_name2{
+    color: var(--text-color);
+    text-shadow: 8px 0px 4px rebeccapurple;
+    font-size: 3rem;
+    text-align: center;
+    margin: 100px;
+}
+
+.delete_button{
+    font-size: 3rem;
+    margin-top: 10%;
+    margin: 50px;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    background: transparent;
+    color: #ba1e1e;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: -4px -4px 8px #ba1e1e, 4px 4px 8px rgb(0 0 0 / 24%);
+    transition: 0.3s;
+}
+
+.chat_button{
+    margin: 50px;
+    font-size: 3rem;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    background: transparent;
+    color: #549d10;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: -4px -4px 8px #549d10, 4px 4px 8px rgb(0 0 0 / 24%);
+    transition: 0.3s;
+}
+
+/* friend page button */
+
+.chat{
+    color: rgb(175, 255, 47);
+    font-size: 3.5rem;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    box-shadow: -4px -4px 8px #1c1b1b, 4px 4px 8px rgb(0 0 0 / 24%);
+    transition: 0.3s;
+    margin: 10px;
+}
+
+.chat:hover{
+    cursor: pointer;
+    transition: 0.3s;
+    transform: scale(1.1);
+    box-shadow: -4px -4px 8px #4b9d10, 4px 4px 8px rgb(0 0 0 / 24%);
+}
+
+.game_button{
+    font-size: 3rem;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    background: transparent;
+    color: #0c90aa;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: -4px -4px 8px #1c1b1b, 4px 4px 8px rgb(0 0 0 / 24%);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.game_button:hover{
+    transition: 0.3s;
+    transform: scale(1.2);
+    box-shadow: -4px -4px 8px #0c90aa, 4px 4px 8px rgb(0 0 0 / 24%);
+}
+
+.block,
+.delete_button{
+    color: rgb(255, 68, 47);
+    font-size: 3.5rem;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    box-shadow: -4px -4px 8px #1c1b1b, 4px 4px 8px rgb(0 0 0 / 24%);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.block:hover,
+.delete_button:hover{
+    transition: 0.3s;
+    transform: scale(1.2);
+    box-shadow: -4px -4px 8px #9d1010, 4px 4px 8px rgb(0 0 0 / 24%);
+}
+
+.buttom{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 20%;
+}
+
+.follow{
+    color: rgb(252, 221, 19);
+    font-size: 3.5rem;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    box-shadow: -4px -4px 8px #1c1b1b, 4px 4px 8px rgb(0 0 0 / 24%);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.follow:hover{
+    transition: 0.3s;
+    transform: scale(1.2);
+    box-shadow: -4px -4px 8px #9d9110, 4px 4px 8px rgb(0 0 0 / 24%);
+}

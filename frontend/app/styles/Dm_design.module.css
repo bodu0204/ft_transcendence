@@ -1,0 +1,441 @@
+.chat_container{
+    width: 100%;
+    background-color: rgb(53, 49, 49);
+    display: flex;
+}
+
+.positions{
+    width: 100%;
+    height: 90%;
+    overflow: auto;
+}
+
+.positions::-webkit-scrollbar {
+    width: 14px; /* スクロールバーの幅 */
+    background-color: rgba(198, 191, 191, 0.642);
+    border-radius: 10px;
+  }
+
+  .positions::-webkit-scrollbar-thumb {
+    background-color: rgb(235, 180, 2); /* スクロールバーの中身の色 */
+    border-radius: 10px;
+  }
+
+
+.position1{
+    display: flex;
+}
+
+.position2{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chat_box{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto; 
+    overflow-y: auto;
+    border-right: 5px solid #c4be18;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* 相手のメッセージ */
+.target_name{
+    position: absolute;
+    font-size: 2.4rem;
+    color: var(--text-color);
+    left: 46%;
+}
+
+.target_message{
+    width: 400px;
+    height: auto;
+    border-radius: 50px;
+    background-color: #db890e;
+    color: white;
+    margin-top: 15px;
+    box-shadow: 17px 4px 15px 5px rgba(32, 30, 30, 0.621);
+}
+
+.message{
+    margin: 30px;
+    font-size: 1.2rem;
+    overflow-wrap: break-word;
+}
+
+
+.target_img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+/* 自分のメッセージ */
+.my_message{
+    width: 400px;
+    height: auto;
+    border-radius: 50px;
+    background-color: rgb(191, 191, 65);
+    color: white;
+    margin-top: 15px;
+    float: right;
+    box-shadow: 17px 4px 15px 5px rgba(32, 30, 30, 0.621);
+}
+
+.send_position{
+    position: relative;
+    flex: 1;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+}
+
+.text{
+    position: relative;
+    width: 80%;
+    height: 65%;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    border: none;
+    top: 20%;
+}
+
+.text::placeholder{
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.send_button{
+    position: absolute;
+    height: 50%;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    color: black;
+    background-color: rgb(161, 161, 43);
+    cursor: pointer;
+    border: none;
+    margin: 10px;
+    top: 20%;
+    transition: 0.4s;
+
+}
+
+.send_button:hover{
+    transition: 0.4s;
+    color: var(--text-color);
+}
+
+/* group name and icon */
+.decoration{
+    position: absolute;
+    left: 38%;
+}
+
+.user_name{
+    font-size: 2rem;
+    color: white;
+}
+
+/* Channel Part */
+.channel_name{
+    color: var(--text-color);
+    font-size: 2.5rem;
+}
+
+.icon_info{
+    font-size: 2.5rem;
+    color: rgb(161, 161, 43);
+    cursor: pointer;
+    transition: 0.4s;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.channel_member{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(161, 161, 43);
+}
+
+.mute_font{
+    color: red;
+    text-shadow: 0px 0px 8px #af1b1b;
+    font-size: 3rem;
+
+}
+
+.member_font{
+    font-size: 1.6rem;
+    color: white;
+    margin-top: 30px;
+}
+
+.members{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(88, 85, 85);
+    border-radius: 20px;
+    box-shadow: 7px 4px 15px 5px rgba(32, 30, 30, 0.621);
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.members:hover{
+    transition: 0.3s;
+    background-color: rgb(120, 118, 121);
+
+}
+
+.members::before{
+	content: '';
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	background: rgb(154, 255, 2);
+	border-radius: 50%;
+	border: 3px solid rgb(88, 85, 85);
+    top: 70px;
+    left: 70px;
+}
+
+.friend_img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px;
+}
+
+.member_name{
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 10px;
+}
+
+.send_msg{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 招待ページ */
+.invite_page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: auto;
+}
+
+.invite_page::-webkit-scrollbar{
+    background-color: rgba(128, 128, 128, 0.642);
+    border-radius: 10px;
+}
+
+.invite_page::-webkit-scrollbar-thumb{
+    background-color: rgba(227, 227, 13, 0.642);
+    border-radius: 10px;
+}
+
+.invite_members{
+    display: flex;
+    border:solid 1px rgba(35, 35, 35, 0.366);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.invite_members:hover{
+    background-color: rgba(69, 68, 68, 0.441);
+    transition: 0.3s;
+}
+
+.name{
+    margin-top: 40px;
+    margin-left: 10px;
+    color: var(--text-color);
+}
+
+/* パスワードページ */
+.passwd_page{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.lock_icons{
+    position: absolute;
+    font-size: 4rem;
+    top: 17%;
+    color: var(--text-color);
+    text-shadow: 0px 0px 8px #ffe600;
+}
+
+.pw{
+    margin-bottom: 90px;
+}
+
+.passwd{
+    width: 500px;
+    height: 70px;
+    background-color: #bb7d21db;
+    color: var(--text-color);
+    border-radius: 10px;
+    font-size: 1.8rem;
+    text-shadow: 0px 0px 8px #ffe600;
+
+}
+
+.passwd::placeholder{
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.bt{
+    margin-top: 40px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: 0.3s;
+    background-color: #ce871cdb;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.bt:hover{
+    text-shadow: 0px 0px 8px #ffe600;
+    transition: 0.4s;
+}
+
+/*  エラー表示ページ */
+
+.error_page{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: red;
+    text-shadow: 0px 0px 8px #af1b1b;
+}
+
+.link{
+    color: var(--text-color);
+    margin-top: 40px;
+    font-size: 1.5rem;
+}
+
+/* userの権限ページ */
+
+.authority{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    filter: drop-shadow(var(--drop-shadow));
+    background-color: #232124;
+
+}
+
+.user_authority{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authority_img{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px;
+    margin: 50px;
+    filter: drop-shadow(var(--drop-shadow));
+}
+
+.button{
+  margin: 20px;
+}
+
+.bt_styles {
+    font-size: 2rem;
+    margin: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+}
+
+.bt_styles:hover {
+    color: black;
+    background-color: white;
+}
+
+/* チャンネル　権限変更ページ　*/
+
+.change_group_authority{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.type{
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin: 50px;
+    text-shadow: 0px 0px 4px rgb(132, 125, 68);
+}
+
+.font{
+    color: rgb(251, 227, 45);
+}
+
+
+/* Icons part */
+.crown{
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gold {
+    color: gold;
+    filter: drop-shadow(var(--drop-shadow)); 
+}
+
+.silver {
+    color: silver;
+}
+
+.regular {
+    color: rgb(184, 115, 51);
+}
+
+.block_icon{
+    font-size: 2rem;
+    color: #af1b1b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.mute_icon{
+    font-size: 2rem;
+    color: #CCCCCC;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,28 @@
+/* globals.css */
+@import url('https://fonts.cdnfonts.com/css/hiskyflipper');
+/* ここにはスタイル全体のグローバル設定があります */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0; 
+	font-family: 'HISKYFLIPPERHIBOLD', sans-serif;
+	font-family: 'HISKYFLIPPERHI', sans-serif;
+	font-family: 'HISKYFLIPPERLOW', sans-serif;
+	font-family: 'HISKYFLIPPERLOWBOLD', sans-serif;
+}
+
+
+:root{
+	--shadow: 0 0 10px rgba(0, 0, 0, .3);
+	--text-color: #FFF;
+	--side-bar-color: rgb(161, 161, 43);
+	--background-color: rgb(46, 43, 43);
+	--dark-color: #151316;
+	--drop-shadow: 0 0 8px rgba(161, 165, 247, .8);
+	--box-shadow-inset: inset 0 22px 56px -36px rgba(255, 255, 255, 0.5), 
+						inset 0 4px 5px -4px rgb(255, 255, 255), 
+						inset 0 -31px 34px -32px rgba(105, 68, 144, 0.3), 
+						inset 0 39px 50px -34px rgba(167, 160, 245, 0.3), 
+						inset 0 2px 9px rgba(163, 146, 210, 0.3), 
+						inset 0 1px 10px rgba(228, 222, 255, 0.2);
+}

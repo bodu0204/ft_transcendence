@@ -1,0 +1,57 @@
+version: '3'
+services:
+  backend:
+    build: ./backend/
+    container_name: backend
+    networks:
+      - transcendence_net
+    hostname: backend.trc
+    depends_on:
+    - database
+    restart: always
+    volumes:
+      - uploade:/home/data
+    env_file:
+      - .env
+  database:
+    build: ./database/
+    container_name: database
+    networks:
+      - transcendence_net
+    hostname: database.trc
+    volumes:
+      - db-data:/var/lib/postgresql/data/
+    restart: always
+    env_file:
+      - .env
+  frontend:
+    build: ./frontend/
+    container_name: frontend
+    networks:
+      - transcendence_net
+    hostname: frontend.trc
+    depends_on:
+    - backend
+    restart: always
+    env_file:
+      - .env
+  proxy:
+    build: ./proxy/
+    container_name: proxy
+    networks:
+      - transcendence_net
+    depends_on:
+    - backend
+    - frontend
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - uploade:/home/data
+
+networks:
+  transcendence_net:
+
+volumes:
+  db-data: {}
+  uploade: {}

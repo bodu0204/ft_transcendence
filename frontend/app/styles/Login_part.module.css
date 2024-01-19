@@ -1,0 +1,129 @@
+.body_part {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.Login_Box {
+  text-align: center;
+  width: 420px;
+  border-radius: 20px;
+  padding: 70px 40px;
+	background-color: var(--background-color);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+}
+
+.font {
+  color: var(--text-color);
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 35px;
+}
+
+.Input_Box {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  margin: 28px 0;
+  transition: 0.5s;
+}
+
+.Input_Box:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  border: 2px solid rgba(255, 255, 255, .2);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px 45px 20px 20px;
+  color: var(--side-bar-color);
+}
+
+.input::placeholder {
+  font-size: 15px;
+  color: whitesmoke;
+}
+
+/* login, submit ボタンのデザイン */
+.Login_part input[type="submit"] {
+  width: 100%;
+  height: 45px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+  background-color: var(--side-bar-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 40px;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.6s;
+}
+
+
+.Login_part input[type="submit"]:hover {
+  color: var(--side-bar-color);
+  background-color: var(--text-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+
+.signup_part {
+  color: var(--text-color);
+  font-weight: 600;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.link_design {
+  color: var(--side-bar-color);
+  border-bottom: 2px solid;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.register_link p{
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  color: white(233, 236, 38, 0.862);
+  font-weight: 800;
+  transition: 0.4s;
+  font-size: 15px;
+}
+
+.register_link a{
+  margin-top: 20px;
+  text-decoration: none;
+  color: var(--side-bar-color);
+  font-weight: 800;
+  transition: 0.4s;
+  font-size: 15px;
+}
+
+.register_link p a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--side-bar-color);
+  transition: 0.4s;
+}
+
+.message_design {
+  color: var(--text-color);
+}

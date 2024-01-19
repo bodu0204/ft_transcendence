@@ -1,0 +1,185 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Status {
+  ONLINE
+  OFFLINE
+  IDLE
+  DO_NOT_DISTURB
+}
+
+enum Access {
+  DIRECT
+  PRIVATE
+  PROTECTED
+  PUBLIC
+}
+
+enum Authority {
+  ADMINISTRATOR
+  MEMBER
+  LEFT
+}
+
+model AuthUsers {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deadline DateTime
+  userId Int @unique
+  user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token String @unique
+}
+
+model PreUsers {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deadline DateTime
+  email String @unique
+  name String
+  hashedPassword String
+  token String @unique
+}
+
+model Users {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  intraId Int? @unique
+  name String
+  email String @unique
+  isAuthentication Boolean @default(false)
+  nickname String?
+  hashedPassword String?
+  status Status
+  exp Float @default(0)
+  level Float @default(0)
+  avatar String @default("")
+
+  ownerChannels Channels[]
+  participantsOf Participants[]
+  messages Messages[]
+  results Results[]
+  followers FollowList[] @relation("Followers")
+  followees FollowList[] @relation("Followees")
+  blockedUsers BlockedList[] @relation("BlockedUsers")
+  blockedUsersBy BlockedList[] @relation("BlockedUsersBy")
+  mutedlist MutedList[]
+  bannedlist BannedList[]
+  authUsers AuthUsers[]
+}
+
+model Channels {
+  id Int @id @default(autoincrement())
+  name String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  access Access
+  ownerId Int
+  owner Users @relation(fields: [ownerId], references: [id])
+  hashedPassword String?
+
+  participants Participants[]
+  messages Messages[]
+  mutedlist MutedList[]
+  bannedlist BannedList[]
+}
+
+model Participants {
+  id Int @id @default(autoincrement())
+  channelId Int
+  channel Channels @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  userId Int
+  user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  authority Authority @default(MEMBER)
+
+  @@unique(fields: [channelId, userId], name: "participant_relation")
+}
+
+model Messages {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  channelId Int
+  channel Channels @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  userId Int
+  user Users @relation(fields: [userId], references: [id])
+  context String
+}
+
+model Games {
+  id Int @id @default(autoincrement())
+  startedAt DateTime @default(now())
+  endedAt DateTime?
+  players Int @default(2)
+
+  results Results[]
+}
+
+model Results {
+  id Int @id @default(autoincrement())
+  userId Int
+  user Users @relation(fields: [userId], references: [id])
+  gameId Int
+  game Games @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  score Int @default(0)
+
+  @@unique(fields: [userId, gameId], name: "result_relation")
+}
+
+model FollowList {
+  id Int @id @default(autoincrement())
+  requestedAt DateTime @default(now())
+  followerId Int
+  follower Users @relation("Followers", fields: [followerId], references: [id], onDelete: Cascade)
+  followeeId Int
+  followee Users @relation("Followees", fields: [followeeId], references: [id], onDelete: Cascade)
+
+  @@unique(fields: [followerId, followeeId], name: "follow_relation")
+}
+
+model BlockedList {
+  id Int @id @default(autoincrement())
+  blockedAt DateTime @default(now())
+  userId Int
+  user Users @relation("BlockedUsers", fields: [userId], references: [id], onDelete: Cascade)
+  blockedUserId Int
+  blockedUser Users @relation("BlockedUsersBy", fields: [blockedUserId], references: [id], onDelete: Cascade)
+
+  @@unique(fields: [userId, blockedUserId], name: "block_relation")
+}
+
+model MutedList {
+  id Int @id @default(autoincrement())
+  mutedAt DateTime @default(now())
+  mutedUntil DateTime
+  channelId Int
+  channel Channels @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  userId Int
+  user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique(fields: [channelId, userId], name: "mute_relation")
+}
+
+model BannedList {
+  id Int @id @default(autoincrement())
+  bannedAt DateTime @default(now())
+  channelId Int
+  channel Channels @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  userId Int
+  user Users @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique(fields: [channelId, userId], name: "ban_relation")
+}
